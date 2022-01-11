@@ -9,7 +9,7 @@ namespace random_food
     class MenuItem
     {
 
-        public Random pengacak = new Random();
+        public static Random pengacak = new Random();
         public string[] Proteins = { "Roast beef", "Salami", "Turkey", "Egg", "Pastrami", "Tofu" };
         public string[] Condiments = { "yellow mustard", "brown mustard", "honey mustard", "mayo", "relish", "french dressing" };
         public string[] Breads = { "rye", "white", "wheat", "pumpernickel", "a roll" };
