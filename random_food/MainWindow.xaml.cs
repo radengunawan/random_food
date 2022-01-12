@@ -86,5 +86,10 @@ namespace random_food
             guacamolePrice = guacamole_based.Price;
             guacamole.Text = "Add guacamole for " + guacamolePrice;
         }//end MakeTheMenu
+
+        private void Repeat_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            MakeTheMenu();
+        }
     } //end MainWindow
 } //end namespace
