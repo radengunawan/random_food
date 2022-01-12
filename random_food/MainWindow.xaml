@@ -36,7 +36,7 @@
         <TextBlock x:Name="item6" FontSize="18px" Grid.Row="5" />
         <TextBlock x:Name="price6" FontSize="18px" HorizontalAlignment="Right" Grid.Row="5" Grid.Column="1"/>
         <TextBlock x:Name="guacamole" FontSize="18px" FontStyle="Italic" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-        <Button x:Name="Repeat_Btn" Content="REPEAT" HorizontalAlignment="Left" Margin="148,34.4,0,1" Grid.Row="6" Width="75" Click="Repeat_Btn_Click"/>
+        <Button x:Name="Repeat_Btn" Content="Re-Order" HorizontalAlignment="Left" Margin="148,34.4,0,1" Grid.Row="6" Width="75" Click="Repeat_Btn_Click"/>
 
     </Grid>
 </Window>

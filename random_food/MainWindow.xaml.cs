@@ -49,24 +49,31 @@ namespace random_food
 
             //Relationship between XAML - .CS 
 
-            //string[] item = new string[] { item1.Text, item2.Text , item3.Text, item4.Text, item5.Text };
-            //string[]
+            // REPLACED BY THIS
+            TextBlock[] item_xaml = new TextBlock[] { item1, item2, item3, item4, item5};
+            TextBlock[] price_xaml = new TextBlock[] { price1, price2, price3, price4, price5};
 
+            for (int i = 0; i < item_xaml.Length; i++)
+            {
+                item_xaml[i].Text = menuItems[i].Description;
+                price_xaml[i].Text = menuItems[i].Price;
+            }
 
-            item1.Text = menuItems[0].Description;
-            price1.Text = menuItems[0].Price;
+            // LAST: 
+            //item1.Text = menuItems[0].Description;
+            //price1.Text = menuItems[0].Price;
 
-            item2.Text = menuItems[1].Description;
-            price2.Text = menuItems[1].Price;
+            //item2.Text = menuItems[1].Description;
+            //price2.Text = menuItems[1].Price;
 
-            item3.Text = menuItems[2].Description;
-            price3.Text = menuItems[2].Price;
+            //item3.Text = menuItems[2].Description;
+            //price3.Text = menuItems[2].Price;
 
-            item4.Text = menuItems[3].Description;
-            price4.Text = menuItems[3].Price;
+            //item4.Text = menuItems[3].Description;
+            //price4.Text = menuItems[3].Price;
 
-            item5.Text = menuItems[4].Description;
-            price5.Text = menuItems[4].Price;
+            //item5.Text = menuItems[4].Description;
+            //price5.Text = menuItems[4].Price;
 
             MenuItem special_the = new MenuItem()
             {
