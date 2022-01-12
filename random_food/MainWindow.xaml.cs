@@ -50,45 +50,56 @@ namespace random_food
             //Relationship between XAML - .CS 
 
             // REPLACED BY THIS
-            TextBlock[] item_xaml_list = new TextBlock[] { item1, item2, item3, item4, item5};
-            TextBlock[] price_xaml_list = new TextBlock[] { price1, price2, price3, price4, price5};
+            //TextBlock[] item_xaml_list = new TextBlock[] { item1, item2, item3, item4, item5};
+            //TextBlock[] price_xaml_list = new TextBlock[] { price1, price2, price3, price4, price5};
 
-            string [] item_real_list = new string[item_xaml_list.Length];
-            float[] price_real_list = new float[price_xaml_list.Length];
-            Order[] list_of_order = new Order[price_xaml_list.Length];
+            List<TextBlock> item_xaml_list = new List<TextBlock> { item1, item2, item3, item4, item5 };
+            List<TextBlock> price_xaml_list = new List<TextBlock> { price1, price2, price3, price4, price5 };
+
+            //string [] item_real_list = new string[item_xaml_list.Length+2];
+            List<string> item_real_list = new List<String>();
+
+            //float[] price_real_list = new float[price_xaml_list.Length+2];
+            List<float> price_real_list = new List<float>();
+
+
+            //Order[] list_of_order = new Order[price_xaml_list.Length+2];
+            List<Order> list_of_order = new List<Order>();
 
             float sum = 0;
+            // Console.WriteLine(list_of_order.Length);
+           
 
-            for (int i = 0; i < item_xaml_list.Length; i++)
+            for (int i = 0; i < item_xaml_list.Count; i++)
             {
                 item_xaml_list[i].Text = menuItems[i].Description;
                 price_xaml_list[i].Text = menuItems[i].Price;
 
                 //STORE the real back-end (not only visual)
-                item_real_list[i] = menuItems[i].Description;
+                //IF using ARRAY:
+                // item_real_list[i] = menuItems[i].Description;
+
+                //If using list:
+                item_real_list.Add(menuItems[i].Description);
+
 
                 //price_real_list[i] = float.Parse(menuItems[i].Price );
-                price_real_list[i] = 5.50F;
+                //IF using ARRAY:
+                //price_real_list[i] = 5.50F;
+                //If using list:
+                price_real_list.Add(5.50F);
 
 
                 // Assembly in a dedicated object is better (more concesiful):
-                list_of_order[i] = new Order { order_item = menuItems[i].Description, order_price = price_real_list[i] };
+                //if using array:
+                //list_of_order[i] = new Order { order_item = menuItems[i].Description, order_price = price_real_list[i] };
 
+                //if using list:
+                list_of_order.Add(new Order { order_item = menuItems[i].Description, order_price = price_real_list[i] });
             }
+            Console.WriteLine(list_of_order.Count);
 
-            foreach (Order oo in list_of_order)
-            {
-                if (oo.order_price != null)
-                {
-                    sum += oo.order_price;
-                }
-                else
-                {
-                    continue;
-                }
-            }
 
-            priceTextBox.Text = sum.ToString();
 
             MenuItem special_the = new MenuItem()
             {
@@ -102,6 +113,7 @@ namespace random_food
             item6.Text = special_the.Description;
             price6.Text = special_the.Price;
             //list_of_order[5] = new Order { order_item = item6.Text, order_price = 5.50F };
+            list_of_order.Add(new Order { order_item = item6.Text, order_price = 5.50F });
 
             MenuItem guacamole_based = new MenuItem();
             guacamole_based.GenerateMenuItem();
@@ -109,15 +121,17 @@ namespace random_food
             guacamolePrice = guacamole_based.Price;
             guacamole.Text = "Add guacamole for " + guacamolePrice;
             //list_of_order[6] = new Order { order_item = "guacamole", order_price = 5.50F };
+            list_of_order.Add(new Order { order_item = "guacamole", order_price = 5.50F });
 
-            //foreach (Order oo in list_of_order)
-            //{
-            //    if (oo != null)
-            //    {
-            //        sum += oo.order_price;
-            //    }
-                
-            //}
+            foreach (Order oo in list_of_order)
+            {
+                //if (oo != null)
+               // {
+                    sum += oo.order_price;
+               // }
+
+            }
+            priceTextBox.Text = sum.ToString();
 
         }//end MakeTheMenu
 
