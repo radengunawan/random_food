@@ -37,6 +37,10 @@ namespace random_food
         //float[] price_real_list = new float[price_xaml_list.Length+2];
         List<float> price_real_list = new List<float>();
 
+
+        List<TextBlock> item_xaml_list = new List<TextBlock>();
+        List<TextBlock> price_xaml_list = new List<TextBlock>(); 
+
         float sum = 0;
 
         private void MakeTheMenu()
@@ -56,8 +60,8 @@ namespace random_food
                 menuItems[i].GenerateMenuItem();
 
             } //end loop
-            //MenuItem[] menuItems = new MenuItem[5];
-            
+              //MenuItem[] menuItems = new MenuItem[5];
+
 
             //Relationship between XAML - .CS 
 
@@ -65,8 +69,19 @@ namespace random_food
             //TextBlock[] item_xaml_list = new TextBlock[] { item1, item2, item3, item4, item5};
             //TextBlock[] price_xaml_list = new TextBlock[] { price1, price2, price3, price4, price5};
 
-            List<TextBlock> item_xaml_list = new List<TextBlock> { item1, item2, item3, item4, item5 };
-            List<TextBlock> price_xaml_list = new List<TextBlock> { price1, price2, price3, price4, price5 };
+            item_xaml_list.Add(item1);
+            item_xaml_list.Add(item2);
+            item_xaml_list.Add(item3);
+            item_xaml_list.Add(item4);
+            item_xaml_list.Add(item5);
+
+
+            //price_xaml_list = { price1, price2, price3, price4, price5 };
+            price_xaml_list.Add(price1);
+            price_xaml_list.Add(price2);
+            price_xaml_list.Add(price3);
+            price_xaml_list.Add(price4);
+            price_xaml_list.Add(price5);
 
             ////string [] item_real_list = new string[item_xaml_list.Length+2];
             //List<string> item_real_list = new List<String>();
@@ -80,7 +95,40 @@ namespace random_food
 
             //float sum = 0; placed outward
             // Console.WriteLine(list_of_order.Length);
-           
+
+            MenuItem special_the = new MenuItem()
+            {
+                Proteins = new string[] { "Organic beef", "Mushroom patty", "Mortadella" },
+                Breads = new string[] { "a gluten free roll", "a wrap", "pita" },
+                Condiments = new string[] { "dijon mustard", "miso dressing", "au jus" }
+            };
+
+            special_the.GenerateMenuItem();
+
+            item6.Text = special_the.Description;
+            price6.Text = special_the.Price;
+            //list_of_order[5] = new Order { order_item = item6.Text, order_price = 5.50F };
+            list_of_order.Add(new Order { order_item = item6.Text, order_price = float.Parse(price6.Text.Split('$')[1]) });
+
+            item_xaml_list.Add(item6);
+            price_xaml_list.Add(price6);
+
+            item_real_list.Add(price6.Text);
+            price_real_list.Add(float.Parse(price6.Text.Split('$')[1]));
+
+            MenuItem guacamole_based = new MenuItem();
+            guacamole_based.GenerateMenuItem();
+
+            guacamolePrice = guacamole_based.Price;
+            guacamole.Text = "Add guacamole for " + guacamolePrice;
+            //list_of_order[6] = new Order { order_item = "guacamole", order_price = 5.50F };
+            list_of_order.Add(new Order { order_item = "guacamole", order_price = float.Parse(guacamolePrice.Split('$')[1]) });
+
+            item_real_list.Add("guacamole");
+            price_real_list.Add(float.Parse(guacamolePrice.Split('$')[1]));
+
+            item_xaml_list.Add(guacamole);
+            price_xaml_list.Add(5.50m);
 
             for (int i = 0; i < item_xaml_list.Count; i++)
             {
@@ -111,44 +159,9 @@ namespace random_food
             }
             //Console.WriteLine(list_of_order.Count);
 
-
-
-            MenuItem special_the = new MenuItem()
-            {
-                Proteins = new string[] { "Organic beef", "Mushroom patty", "Mortadella" },
-                Breads = new string[] { "a gluten free roll", "a wrap", "pita" },
-                Condiments = new string[] { "dijon mustard", "miso dressing", "au jus" }
-            };
-
-            special_the.GenerateMenuItem();
-
-            item6.Text = special_the.Description;
-            price6.Text = special_the.Price;
-            //list_of_order[5] = new Order { order_item = item6.Text, order_price = 5.50F };
-            list_of_order.Add(new Order { order_item = item6.Text, order_price = float.Parse(price6.Text.Split('$')[1]) });
-            
-            item_real_list.Add(price6.Text);
-            price_real_list.Add(float.Parse(price6.Text.Split('$')[1]));
-
-            MenuItem guacamole_based = new MenuItem();
-            guacamole_based.GenerateMenuItem();
-
-            guacamolePrice = guacamole_based.Price;
-            guacamole.Text = "Add guacamole for " + guacamolePrice;
-            //list_of_order[6] = new Order { order_item = "guacamole", order_price = 5.50F };
-            list_of_order.Add(new Order { order_item = "guacamole", order_price = float.Parse(guacamolePrice.Split('$')[1]) });
-
-            item_real_list.Add("guacamole");
-            price_real_list.Add(float.Parse(guacamolePrice.Split('$')[1]));
+           
             priceTextBox.Text = sum.ToString();
-            //foreach (Order oo in list_of_order)
-            //{
-
-            //        sum += oo.order_price;
-
-
-            //}
-            //priceTextBox.Text = sum.ToString();
+            
 
         }//end MakeTheMenu
 
@@ -318,10 +331,5 @@ namespace random_food
         }
 
 
-
-        //private void c1_Unchecked(object sender, RoutedEventArgs e)
-        //{
-        //    foreach (Author item in a1)
-        //}
     } //end MainWindow
 } //end namespace
