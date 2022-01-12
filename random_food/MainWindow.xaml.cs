@@ -87,7 +87,7 @@ namespace random_food
                 //IF using ARRAY:
                 //price_real_list[i] = 5.50F;
                 //If using list:
-                price_real_list.Add(5.50F);
+                price_real_list.Add(float.Parse(menuItems[i].Price.Split('$')[1]));
 
 
                 // Assembly in a dedicated object is better (more concesiful):
