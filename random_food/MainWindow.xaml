@@ -39,13 +39,13 @@
         <Button x:Name="Repeat_Btn" Content="Re-Order" HorizontalAlignment="Left" Margin="148,34.4,0,1" Grid.Row="6" Width="75" Click="Repeat_Btn_Click"/>
         <Label Content="Total: $" HorizontalAlignment="Left" Margin="322,21.4,0,0" Grid.Row="6" VerticalAlignment="Top" Height="33" Width="56" FontSize="15"/>
         <TextBlock x:Name="priceTextBox" HorizontalAlignment="Left" Margin="376,26.4,0,0" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="15"/>
-        <CheckBox x:Name="c1" HorizontalAlignment="Left" Margin="0,2,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <CheckBox x:Name="c2" Grid.Column="1" HorizontalAlignment="Left" Margin="1,5.4,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <CheckBox x:Name="c3" Grid.Column="1" HorizontalAlignment="Left" Margin="4,52.4,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.RowSpan="2"/>
-        <CheckBox x:Name="c4" Grid.Column="1" HorizontalAlignment="Left" Margin="6,0.6,0,0" Grid.Row="3" VerticalAlignment="Top"/>
-        <CheckBox x:Name="c5" Grid.Column="1" HorizontalAlignment="Left" Margin="5,53.6,0,0" Grid.Row="3" VerticalAlignment="Top" Grid.RowSpan="2"/>
-        <CheckBox x:Name="c6" Grid.Column="1" HorizontalAlignment="Left" Margin="5,52.2,0,0" Grid.Row="4" VerticalAlignment="Top" Grid.RowSpan="2"/>
-        <CheckBox x:Name="c_bonus" Grid.Column="1" HorizontalAlignment="Left" Margin="5,51.8,0,0" Grid.Row="5" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <CheckBox x:Name="c1" HorizontalAlignment="Left" Margin="0,2,0,0" VerticalAlignment="Top" Grid.Column="1" Checked="c1_Checked" Unchecked="c1_Unchecked"  />
+        <CheckBox x:Name="c2" Grid.Column="1" HorizontalAlignment="Left" Margin="1,5.4,0,0" Grid.Row="1" VerticalAlignment="Top" Checked="c2_Checked" Unchecked="c2_Unchecked"/>
+        <CheckBox x:Name="c3" Grid.Column="1" HorizontalAlignment="Left" Margin="4,52.4,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.RowSpan="2" Checked="c3_Checked" Unchecked="c3_Unchecked"/>
+        <CheckBox x:Name="c4" Grid.Column="1" HorizontalAlignment="Left" Margin="6,0.6,0,0" Grid.Row="3" VerticalAlignment="Top" Checked="c4_Checked" Unchecked="c4_Unchecked"/>
+        <CheckBox x:Name="c5" Grid.Column="1" HorizontalAlignment="Left" Margin="5,53.6,0,0" Grid.Row="3" VerticalAlignment="Top" Grid.RowSpan="2" Checked="c5_Checked" Unchecked="c5_Unchecked"/>
+        <CheckBox x:Name="c6" Grid.Column="1" HorizontalAlignment="Left" Margin="5,52.2,0,0" Grid.Row="4" VerticalAlignment="Top" Grid.RowSpan="2" Checked="c6_Checked" Unchecked="c6_Unchecked"/>
+        <CheckBox x:Name="c_bonus" Grid.Column="1" HorizontalAlignment="Left" Margin="5,51.8,0,0" Grid.Row="5" VerticalAlignment="Top" Grid.RowSpan="2" Checked="c_bonus_Checked" Unchecked="c_bonus_Unchecked"/>
 
 
     </Grid>
