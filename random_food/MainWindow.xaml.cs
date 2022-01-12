@@ -97,7 +97,7 @@ namespace random_food
                 //if using list:
                 list_of_order.Add(new Order { order_item = menuItems[i].Description, order_price = price_real_list[i] });
             }
-            Console.WriteLine(list_of_order.Count);
+            //Console.WriteLine(list_of_order.Count);
 
 
 
@@ -113,7 +113,7 @@ namespace random_food
             item6.Text = special_the.Description;
             price6.Text = special_the.Price;
             //list_of_order[5] = new Order { order_item = item6.Text, order_price = 5.50F };
-            list_of_order.Add(new Order { order_item = item6.Text, order_price = 5.50F });
+            list_of_order.Add(new Order { order_item = item6.Text, order_price = float.Parse(price6.Text.Split('$')[1]) });
 
             MenuItem guacamole_based = new MenuItem();
             guacamole_based.GenerateMenuItem();
@@ -121,7 +121,7 @@ namespace random_food
             guacamolePrice = guacamole_based.Price;
             guacamole.Text = "Add guacamole for " + guacamolePrice;
             //list_of_order[6] = new Order { order_item = "guacamole", order_price = 5.50F };
-            list_of_order.Add(new Order { order_item = "guacamole", order_price = 5.50F });
+            list_of_order.Add(new Order { order_item = "guacamole", order_price = float.Parse(guacamolePrice.Split('$')[1]) });
 
             foreach (Order oo in list_of_order)
             {
@@ -132,6 +132,9 @@ namespace random_food
 
             }
             priceTextBox.Text = sum.ToString();
+            Console.WriteLine(list_of_order.Count);
+
+          
 
         }//end MakeTheMenu
 
