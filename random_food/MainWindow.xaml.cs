@@ -28,7 +28,8 @@ namespace random_food
 
 
         List<Order> list_of_order = new List<Order>();
-        MenuItem[] menuItems = new MenuItem[5];
+        //MenuItem[] menuItems = new MenuItem[10];
+        List<MenuItem> menuItems = new List<MenuItem>();
         string guacamolePrice;
         
         //string [] item_real_list = new string[item_xaml_list.Length+2];
@@ -45,10 +46,15 @@ namespace random_food
 
         private void MakeTheMenu()
         {
-
             for (int i = 0; i < 5; i++)
             {
-                menuItems[i] = new MenuItem();
+                menuItems.Add(new MenuItem());
+            }
+           // var x = menuItems.Count(); //just for debugging
+
+              for (int i = 0; i < 5; i++)
+            {
+                //menuItems[i] = new MenuItem();
 
                 if (i >= 3)
                 {
@@ -109,9 +115,9 @@ namespace random_food
             price6.Text = special_the.Price;
             //list_of_order[5] = new Order { order_item = item6.Text, order_price = 5.50F };
             list_of_order.Add(new Order { order_item = item6.Text, order_price = float.Parse(price6.Text.Split('$')[1]) });
-
             item_xaml_list.Add(item6);
             price_xaml_list.Add(price6);
+            menuItems.Add(special_the);
 
             item_real_list.Add(price6.Text);
             price_real_list.Add(float.Parse(price6.Text.Split('$')[1]));
@@ -128,12 +134,19 @@ namespace random_food
             price_real_list.Add(float.Parse(guacamolePrice.Split('$')[1]));
 
             item_xaml_list.Add(guacamole);
-            price_xaml_list.Add(5.50m);
+
+            price7.Text = special_the.Price;
+
+            price_xaml_list.Add(price7);
+            menuItems.Add(guacamole_based);
 
             for (int i = 0; i < item_xaml_list.Count; i++)
             {
+                
                 item_xaml_list[i].Text = menuItems[i].Description;
                 price_xaml_list[i].Text = menuItems[i].Price;
+                
+                
 
                 //STORE the real back-end (not only visual)
                 //IF using ARRAY:
